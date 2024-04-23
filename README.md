@@ -59,7 +59,6 @@ Github Actions:
     plugin: maven
     args: |
       setup
-    working-directory: example
 - name: Show maven version
   run: |
     type mvn
