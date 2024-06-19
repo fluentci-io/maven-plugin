@@ -1,5 +1,6 @@
 # Maven Plugin
 
+[![fluentci pipeline](https://shield.fluentci.io/x/maven)](https://pkg.fluentci.io/maven)
 [![ci](https://github.com/fluentci-io/maven-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/fluentci-io/maven-plugin/actions/workflows/ci.yml)
 
 This plugin sets up your CI/CD pipeline with a specific version of [maven](https://maven.apache.org/).
