@@ -5,9 +5,16 @@ on:
       - main
 jobs:
   example:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
+      - name: Uninstall Maven
+        if: matrix.os == 'macos-latest'
+        run: |
+          brew uninstall maven
       - name: Setup example
         run: |
           mkdir -p example/.fluentci
@@ -22,6 +29,8 @@ jobs:
           args: |
             setup
           working-directory: example
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Show maven version
         run: |
           type mvn
